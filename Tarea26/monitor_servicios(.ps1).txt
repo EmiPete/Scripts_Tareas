@@ -1,0 +1,9 @@
+#Santiago Bautista Salazar
+#Emilio Rafael Puente Cardona
+# Obtener información de los servicios del sistema y exportar a CSV
+try {
+    Get-Service | Select-Object Name, DisplayName, Status, StartType | Export-Csv -Path "servicios.csv" -NoTypeInformation
+    Write-Host "Los servicios han sido exportados a servicios.csv."
+} catch {
+    Write-Host "Error al obtener servicios: $_"
+}
